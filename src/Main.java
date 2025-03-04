@@ -9,7 +9,7 @@ public class Main {
 
     public static int taxEarnings(int earnings) {
         return earnings * 6 / 100;
-       }
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -45,13 +45,13 @@ public class Main {
                     int tax;
                     int taxDif;
                     String taxName;
-                    if (taxEarnings(earnings) < taxEarningsMinusSpendings(earnings,spendings)) {
+                    if (taxEarnings(earnings) < taxEarningsMinusSpendings(earnings, spendings)) {
                         tax = taxEarnings(earnings);
-                        taxDif = taxEarningsMinusSpendings(earnings,spendings) - taxEarnings(earnings);
+                        taxDif = taxEarningsMinusSpendings(earnings, spendings) - taxEarnings(earnings);
                         taxName = "УСН доходы";
                     } else {
-                        tax = taxEarningsMinusSpendings(earnings,spendings);
-                        taxDif = taxEarnings(earnings) - taxEarningsMinusSpendings(earnings,spendings);
+                        tax = taxEarningsMinusSpendings(earnings, spendings);
+                        taxDif = taxEarnings(earnings) - taxEarningsMinusSpendings(earnings, spendings);
                         taxName = "УСН доходы минус расходы";
                     }
                     System.out.println("Мы советуем вам " + taxName);
