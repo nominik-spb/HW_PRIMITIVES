@@ -42,22 +42,20 @@ public class Main {
                     spendings += money;
                     break;
                 case 3:
-                    int tax;
-                    int taxDif;
-                    String taxName;
-                    if (taxEarnings(earnings) < taxEarningsMinusSpendings(earnings, spendings)) {
-                        tax = taxEarnings(earnings);
-                        taxDif = taxEarningsMinusSpendings(earnings, spendings) - taxEarnings(earnings);
-                        taxName = "УСН доходы";
+                    int tax1 = taxEarnings(earnings);
+                    int tax2 = taxEarningsMinusSpendings(earnings, spendings);
+
+                    if (tax1 < tax2) {
+                        System.out.println("Мы советуем вам УСН доходы");
+                        System.out.println("Ваш налог составит: " + tax1 + " рублей");
+                        System.out.println("Налог на другой системе: " + tax2 + " рублей");
+                        System.out.println("Экономия: " + (tax2 - tax1) + " рублей");
                     } else {
-                        tax = taxEarningsMinusSpendings(earnings, spendings);
-                        taxDif = taxEarnings(earnings) - taxEarningsMinusSpendings(earnings, spendings);
-                        taxName = "УСН доходы минус расходы";
+                        System.out.println("Мы советуем вам УСН доходы минус расходы");
+                        System.out.println("Ваш налог составит: " + tax2 + " рублей");
+                        System.out.println("Налог на другой системе: " + tax1 + " рублей");
+                        System.out.println("Экономия: " + (tax1 - tax2) + " рублей");
                     }
-                    System.out.println("Мы советуем вам " + taxName);
-                    System.out.println("Ваш налог составит: " + tax + " рублей");
-                    System.out.println("Налог на другой системе: " + (tax + taxDif) + " рублей");
-                    System.out.println("Экономия: " + taxDif + " рублей");
                     break;
                 default:
                     System.out.println("Такой операции нет");
